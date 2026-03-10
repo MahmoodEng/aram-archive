@@ -105,18 +105,67 @@ While the app is running:
 
 ---
 
-## Getting Started (quick reference)
+## ⚡ Quick Local Setup (TL;DR)
 
 ```bash
-# 1. Install dependencies
+# 1. Clone and enter the project
+git clone https://github.com/MahmoodEng/aram-archive.git
+cd aram-archive
+
+# 2. Install dependencies
 flutter pub get
 
-# 2. Run on connected device / emulator
+# 3. Run on a connected device / emulator
 flutter run
 
-# 3. Run tests
+# 4. Run tests
 flutter test
 ```
+
+---
+
+## 🛠️ Troubleshooting Local Setup
+
+### `flutter` command not found
+Flutter is not on your PATH.  
+→ Follow the [Flutter install guide](https://docs.flutter.dev/get-started/install) for your OS and make sure the `flutter/bin` directory is added to your PATH.
+
+### `flutter doctor` shows issues
+Run `flutter doctor -v` for detailed output and fix each ❌ item before running the app.  
+Common fixes:
+
+| Problem | Fix |
+|---|---|
+| Android toolchain missing | Install [Android Studio](https://developer.android.com/studio) and accept SDK licences with `flutter doctor --android-licenses` |
+| No connected devices | Start an Android emulator via Android Studio → Device Manager, or connect a physical phone with USB debugging enabled |
+| CocoaPods not installed (macOS) | Run `sudo gem install cocoapods` |
+
+### `flutter pub get` fails
+- Check your internet connection.
+- If behind a proxy, set `http_proxy` / `https_proxy` environment variables.
+- Delete `.dart_tool/` and `pubspec.lock`, then retry.
+
+### App builds but crashes immediately
+Run in verbose mode to see the full error:
+```bash
+flutter run --verbose
+```
+
+### "Waiting for another flutter command to release the startup lock"
+Another Flutter process is hanging. Kill it:
+```bash
+# macOS / Linux
+killall dart
+
+# Windows (PowerShell)
+Stop-Process -Name dart
+```
+
+### Hot reload not working
+- Make sure you saved the file (`Ctrl+S`).
+- Hot reload does **not** apply changes to `main()`, global variables, or `initState()` — use **hot restart** (`R`) for those.
+
+---
 
 ## Project Structure
 
