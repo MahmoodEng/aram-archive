@@ -11,18 +11,111 @@ A Flutter application for managing Boxes and Books with PDF support, using SQLit
 - 📄 **PDF Viewer** — Attach and open PDF files for each book
 - 💾 **Offline** — All data stored locally using SQLite (no internet required)
 
-## Getting Started
+---
 
-### Prerequisites
+## 🖥️ How to Open and Run in VS Code
 
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) (>=3.10.0)
-- Android Studio or VS Code with Flutter extension
+Follow these steps to get the app running on your device or emulator directly inside VS Code.
 
-### Installation
+### Step 1 — Install Flutter SDK
+
+1. Go to <https://docs.flutter.dev/get-started/install> and follow the guide for your OS (Windows / macOS / Linux).
+2. After installation, open a terminal and verify:
+
+   ```bash
+   flutter doctor
+   ```
+
+   Fix any issues reported by `flutter doctor` before continuing (especially the Android SDK and emulator setup).
+
+### Step 2 — Install VS Code Extensions
+
+1. Open **VS Code**.
+2. Press `Ctrl+Shift+X` (or `Cmd+Shift+X` on Mac) to open the Extensions panel.
+3. Search for and install:
+   - **Flutter** (publisher: Dart Code) — also installs the Dart extension automatically.
+
+   > Tip: When you open this project, VS Code may show a pop-up *"Do you want to install the recommended extensions?"* — click **Install** to add them automatically (they are listed in `.vscode/extensions.json`).
+
+### Step 3 — Clone / Open the Project
+
+If you have already cloned the repository:
+
+```bash
+git clone https://github.com/MahmoodEng/aram-archive.git
+cd aram-archive
+```
+
+Then open the folder in VS Code:
+
+```bash
+code .
+```
+
+Or use **File → Open Folder…** inside VS Code and select the `aram-archive` folder.
+
+### Step 4 — Install Dependencies
+
+Open the integrated terminal in VS Code (`Ctrl+` `` ` ``) and run:
 
 ```bash
 flutter pub get
+```
+
+This downloads all packages listed in `pubspec.yaml`.
+
+### Step 5 — Start a Device or Emulator
+
+You need a running target to display the app. Choose one:
+
+| Option | How to start |
+|---|---|
+| **Android Emulator** | Open Android Studio → Device Manager → ▶ Start an AVD, *or* run `flutter emulators --launch <id>` |
+| **Physical Android phone** | Enable *Developer Options* → *USB Debugging* on the phone, then plug it in via USB |
+| **Chrome (web preview)** | No setup needed — Flutter supports web out of the box |
+
+After starting your device, check VS Code's status bar at the bottom. Click the device picker (it shows *"No Device"* or a device name) and select your emulator/phone.
+
+### Step 6 — Run the App
+
+**Option A — Using the Run button (easiest)**
+
+1. Open `lib/main.dart` in the editor.
+2. Press **F5** (or go to **Run → Start Debugging**).
+3. Choose **"Aram Archive (debug)"** from the launch configuration dropdown.
+4. The app builds and opens on your selected device. 🎉
+
+**Option B — Using the terminal**
+
+```bash
 flutter run
+```
+
+Add `--release` for a production build, or `-d chrome` to run in the browser.
+
+### Step 7 — Hot Reload & Hot Restart
+
+While the app is running:
+
+| Action | Shortcut |
+|---|---|
+| **Hot Reload** (keeps state) | `r` in terminal, or `Ctrl+F5` in VS Code |
+| **Hot Restart** (resets state) | `R` in terminal, or the restart button in the debug toolbar |
+| **Stop** | `q` in terminal, or the red stop button |
+
+---
+
+## Getting Started (quick reference)
+
+```bash
+# 1. Install dependencies
+flutter pub get
+
+# 2. Run on connected device / emulator
+flutter run
+
+# 3. Run tests
+flutter test
 ```
 
 ## Project Structure
